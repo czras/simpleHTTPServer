@@ -4,11 +4,10 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"path/filepath"
 )
 
 func main() {
-	pwd, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	pwd, err := os.Getwd()
 	if err != nil {
 		log.Fatal(err)
 	}
