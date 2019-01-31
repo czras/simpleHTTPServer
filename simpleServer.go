@@ -48,7 +48,7 @@ func logHandler(h http.Handler) http.HandlerFunc {
 		if len(bodySize) == 0 {
 			bodySize = strconv.Itoa(rw.bodySize)
 		}
-		log.Printf("Request{url: %s, method: %s} Response{status: %d, content-type: %s, content-length: %s, time: %s}",
-			r.URL.RequestURI(), r.Method, rw.status, rw.Header().Get("Content-Type"), bodySize, time.Since(start))
+		log.Printf("Request{url: %s, method: %s, remote: %s} Response{status: %d, content-type: %s, content-length: %s, time: %s}",
+			r.URL.RequestURI(), r.Method, r.RemoteAddr, rw.status, rw.Header().Get("Content-Type"), bodySize, time.Since(start))
 	}
 }
